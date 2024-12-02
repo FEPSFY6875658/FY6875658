@@ -130,7 +130,11 @@ document.getElementById("date&time").innerHTML=d;
 
                 //Set the button's background colour to the random colour
                 button.style.backgroundColor = randomColor;
-           
+      }
+
+            //Add a click event listener to the button
+            button.addEventListener("click", changeColor);
+        };      
    
   
   
