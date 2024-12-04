@@ -67,18 +67,21 @@ p.ex1 {
         </head>
 <h3 id="Abstract">Abstract</h3>
 <p class="ex1">
+  <pre id="Abstarct_intext">
 <pre>
     Abstract 
 </pre>
 </p>
 <h3 id="Introduction">Introduction</h3>
 <p class="ex1">
+  <pre id="Introduction_intext">
 <pre>
     introduction 
 </pre>
 </p>
 <h3 id="Main body">Main body</h3>
 <p class="ex1">
+  <pre id="Main body_intext">
 <pre>
   <b><h4>Ada Lovelace</h4></b> 
      
@@ -106,6 +109,7 @@ p.ex1 {
 </p>
 <h3 id="Conclusion">conclusion</h3>
 <p class="ex1">
+<pre id="Conclusion_intext">
 <pre>
     conclusion 
 </pre>
@@ -225,9 +229,9 @@ document.getElementById("date&time").innerHTML=d;
     // Calculate word count for each section and accumulate the total
     const IntroductionCount = displayWordCount("Introduction_InText");
     const MainbodyCount = displayWordCount("Mainbody_InText");
-     const ConclusionCount = displayWordCount("Conclusion_InText")
+    const ConclusionCount = displayWordCount("Conclusion_InText")
     // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + MainbodyCount+Conclusioncount;
+    const totalWordCount = IntroductionCount + MainbodyCount + Conclusioncount;
     // Display the total word count
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
