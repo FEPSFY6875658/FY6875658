@@ -90,8 +90,119 @@ From programming the first algorithm to inventing the dishwasher and revolutioni
 and continue to shape industries today.  
 </pre>
 </pre>
- 
 
+ <video src="Modern day applications of past women in stem.mp4" width="800" height="450" controls>
+ </video>
+  <script>
+//Javascript to display the date and time on my webpage
+const d = new Date();
+document.getElementById("date&time").innerHTML=d;
+</script>
+      <!DOCTYPE html>
+<html>
+<head>
+    <title>Click me to change Colour</title>
+    <script type="text/javascript">
+        //Get a reference to the button element
+        window.onload = function() {
+            var button = document.getElementById("colorButton");
+
+            //Function to change the button colour
+            function changeColor() {
+                //Generate a random colour (hexadecimal)
+                var randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+
+                //Set the button's background colour to the random colour
+                button.style.backgroundColor = randomColor;
+      }
+
+            //Add a click event listener to the button
+            button.addEventListener("click", changeColor);
+        };      
+    </script>
+</head>
+  <body>
+    <button id="colorButton">Click me to change colour</button>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+     <!-- Last commit time display -->
+<div id="last-updated">Loading last update time...</div>
+<!-- Verify Button -->
+<button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
+    Verify Last Modified Time
+</button>
+<script>
+    async function getLastUpdatedTime() {
+        const username = 'FEPSFY6875658';
+        const repo = 'FY6875658';
+       
+        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+        try {
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/vnd.github.v3+json',
+                }
+            });
+            if (!response.ok) {
+                throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
+            }
+            const commits = await response.json();
+            if (commits && commits.length > 0) {
+                const lastCommitDate = new Date(commits[0].commit.committer.date);
+               
+                // Displaying the time on load
+                document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+            } else {
+                document.getElementById('last-updated').innerText = 'No commits found in the repository.';
+            }
+        } catch (error) {
+            console.error('Error fetching the last updated time:', error);
+            document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
+        }
+    }
+    // Function to verify the last update time by re-fetching it from the API
+    async function verifyLastUpdatedTime() {
+        document.getElementById('last-updated').innerText = 'Verifying...';
+        await getLastUpdatedTime();
+        alert("Last modified time has been successfully verified from GitHub API.");
+    }
+    // Initial load to display the time on page load
+    window.onload = getLastUpdatedTime;
+</script>
+
+
+ <!-- //////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ////////////////////////////// Word count function ////////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////////////////////////////// -->
+<!-- Placeholder for total word count -->
+<p id="totalWordCount"></p>
+<hr>
+<script>
+  // Function to calculate and display word count for a specified section
+  function displayWordCount(sectionId, outputId) {
+    // Get the text content from the specified section
+    const text = document.getElementById(sectionId).textContent;
+    // Split text into words based on spaces and filter out any empty strings
+    const wordArray = text.trim().split(/\s+/);
+    // Count the words
+    const wordCount = wordArray.length;
+    // Return the word count for summing purposes
+    return wordCount;
+  }
+  // Function to calculate and display total word count from selected sections
+  function displayTotalWordCount() {
+    // Calculate word count for each section and accumulate the total
+    const IntroductionCount = displayWordCount("Introduction_InText");
+    const MainbodyCount = displayWordCount("Mainbody_InText");
+    const ConclusionCount = displayWordCount("Conclusion_InText");
+    // Calculate the sum of all selected sections
+    const totalWordCount = IntroductionCount + MainbodyCount + ConclusionCount;
+    // Display the total word count
+    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+  }
+  // Run the function for specific sections and display total count when the page loads
+  window.onload = displayTotalWordCount;
+</script>
 <pre id="Mainbody_InText">
 <h3 id="Main body">Main body</h3>
 <p class="ex1"> </p>
@@ -260,116 +371,7 @@ Available at: <a href="https://blogs.bodleian.ox.ac.uk/adalovelace/2018/07/26/ad
 </html>
 </pre>
 <p id="date&time"></p>
-<script>
-//Javascript to display the date and time on my webpage
-const d = new Date();
-document.getElementById("date&time").innerHTML=d;
-</script>
-      <!DOCTYPE html>
-<html>
-<head>
-    <title>Click me to change Colour</title>
-    <script type="text/javascript">
-        //Get a reference to the button element
-        window.onload = function() {
-            var button = document.getElementById("colorButton");
 
-            //Function to change the button colour
-            function changeColor() {
-                //Generate a random colour (hexadecimal)
-                var randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-
-                //Set the button's background colour to the random colour
-                button.style.backgroundColor = randomColor;
-      }
-
-            //Add a click event listener to the button
-            button.addEventListener("click", changeColor);
-        };      
-    </script>
-</head>
-  <body>
-    <button id="colorButton">Click me to change colour</button>
-    <div id="chart_div" style="width: 900px; height: 500px;"></div>
-     <!-- Last commit time display -->
-<div id="last-updated">Loading last update time...</div>
-<!-- Verify Button -->
-<button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
-    Verify Last Modified Time
-</button>
-<script>
-    async function getLastUpdatedTime() {
-        const username = 'FEPSFY6875658';
-        const repo = 'FY6875658';
-       
-        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
-        try {
-            const response = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/vnd.github.v3+json',
-                }
-            });
-            if (!response.ok) {
-                throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
-            }
-            const commits = await response.json();
-            if (commits && commits.length > 0) {
-                const lastCommitDate = new Date(commits[0].commit.committer.date);
-               
-                // Displaying the time on load
-                document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
-            } else {
-                document.getElementById('last-updated').innerText = 'No commits found in the repository.';
-            }
-        } catch (error) {
-            console.error('Error fetching the last updated time:', error);
-            document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
-        }
-    }
-    // Function to verify the last update time by re-fetching it from the API
-    async function verifyLastUpdatedTime() {
-        document.getElementById('last-updated').innerText = 'Verifying...';
-        await getLastUpdatedTime();
-        alert("Last modified time has been successfully verified from GitHub API.");
-    }
-    // Initial load to display the time on page load
-    window.onload = getLastUpdatedTime;
-</script>
-
-
- <!-- //////////////////////////////////////////////////////////////////////////////// -->
-  <!-- ////////////////////////////// Word count function ////////////////////////////// -->
-  <!-- //////////////////////////////////////////////////////////////////////////////// -->
-<!-- Placeholder for total word count -->
-<p id="totalWordCount"></p>
-<hr>
-<script>
-  // Function to calculate and display word count for a specified section
-  function displayWordCount(sectionId, outputId) {
-    // Get the text content from the specified section
-    const text = document.getElementById(sectionId).textContent;
-    // Split text into words based on spaces and filter out any empty strings
-    const wordArray = text.trim().split(/\s+/);
-    // Count the words
-    const wordCount = wordArray.length;
-    // Return the word count for summing purposes
-    return wordCount;
-  }
-  // Function to calculate and display total word count from selected sections
-  function displayTotalWordCount() {
-    // Calculate word count for each section and accumulate the total
-    const IntroductionCount = displayWordCount("Introduction_InText");
-    const MainbodyCount = displayWordCount("Mainbody_InText");
-    const ConclusionCount = displayWordCount("Conclusion_InText");
-    // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + MainbodyCount + ConclusionCount;
-    // Display the total word count
-    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
-  }
-  // Run the function for specific sections and display total count when the page loads
-  window.onload = displayTotalWordCount;
-</script>
 </body>
 </html>  
  
